@@ -26,7 +26,13 @@ const INSTALL_COMPLEXITY = [
 ];
 
 function formatCurrency(num) {
- return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFraction}
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0
+  }).format(num);
+}
+ 
 function ProgressBar({ value, max, color = "bg-emerald-500", label }) {
  const pct = Math.min((value / max) * 100, 100);
  return (
