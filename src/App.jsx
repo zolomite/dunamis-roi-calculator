@@ -113,8 +113,8 @@ const netCost = Math.max(totalProjectCost - totalIncentives, 0);
  monthsToROI, annualMaintenanceCost, netAnnualRevenue, netFiveYearRevenue,
  propertyValueIncrease,
  };
- }, [propertyType, utility, numPorts, complexity, monthlyCharges, pricePerKwh, avgKwhPerSess return (
- <div className="min-h-screen bg-slate-900 text-white">
+}, [propertyType, utility, numPorts, complexity, monthlyCharges, pricePerKwh, avgKwhPerSession]); 
+<div className="min-h-screen bg-slate-900 text-white">
  <div className="max-w-6xl mx-auto p-4">
  {/* Header */}
  <div className="text-center mb-8 pt-4">
