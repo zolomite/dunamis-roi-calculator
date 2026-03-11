@@ -76,10 +76,20 @@ export default function DunamisROICalculator() {
  const totalMeter = meterCost;
  const totalProjectCost = totalHardware + totalInstall + totalMeter;
  const utilityRebatePerPort = pt.rebatePerPort;
- const totalUtilityRebate = Math.min(utilityRebatePerPort * numPorts, totalProjectCost);
- const federalCreditPerPort = isDCFC ? 100000 : 1000;
- const totalFederalCredit = Math.min(federalCreditPerPort * numPorts, totalProjectCost - t const totalIncentives = totalUtilityRebate + totalFederalCredit;
- const netCost = Math.max(totalProjectCost - totalIncentives, 0);
+const totalUtilityRebate = Math.min(
+  utilityRebatePerPort * numPorts,
+  totalProjectCost
+);
+
+const federalCreditPerPort = isDCFC ? 100000 : 1000;
+
+const totalFederalCredit = Math.min(
+  federalCreditPerPort * numPorts,
+  totalProjectCost - totalUtilityRebate
+);
+
+const totalIncentives = totalUtilityRebate + totalFederalCredit; 
+const netCost = Math.max(totalProjectCost - totalIncentives, 0);
  const coveragePct = Math.min((totalIncentives / totalProjectCost) * 100, 100);
  const monthlyRevenuePerPort = monthlyCharges * pricePerKwh * avgKwhPerSession;
  const totalMonthlyRevenue = monthlyRevenuePerPort * numPorts;
