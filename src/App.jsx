@@ -1,20 +1,30 @@
 import { useState, useMemo } from "react";
+
 const PROPERTY_TYPES = [
- { value: "multifamily_income", label: "Apartment Complex (Income-Eligible)", rebatePerPort: { value: "multifamily_standard", label: "Apartment Complex (Standard)", rebatePerPort: 5000 { value: "hotel", label: "Hotel / Hospitality", rebatePerPort: 7500, chargerType: "L2" },
- { value: "gas_station", label: "Gas Station / C-Store", rebatePerPort: 70000, chargerType:  { value: "workplace", label: "Workplace / Office", rebatePerPort: 2500, chargerType: "L2" } { value: "retail", label: "Retail / Commercial", rebatePerPort: 2500, chargerType: "L2" },
- { value: "fleet", label: "Fleet Depot", rebatePerPort: 30000, chargerType: "DCFC" },
- { value: "municipal", label: "Municipal / Government", rebatePerPort: 2500, chargerType: "L];
+  { value: "multifamily_income", label: "Apartment Complex (Income-Eligible)", rebatePerPort: 14400, chargerType: "L2" },
+  { value: "multifamily_standard", label: "Apartment Complex (Standard)", rebatePerPort: 5000, chargerType: "L2" },
+  { value: "hotel", label: "Hotel / Hospitality", rebatePerPort: 7500, chargerType: "L2" },
+  { value: "gas_station", label: "Gas Station / C-Store", rebatePerPort: 70000, chargerType: "DCFC" },
+  { value: "workplace", label: "Workplace / Office", rebatePerPort: 2500, chargerType: "L2" },
+  { value: "retail", label: "Retail / Commercial", rebatePerPort: 2500, chargerType: "L2" },
+  { value: "fleet", label: "Fleet Depot", rebatePerPort: 30000, chargerType: "DCFC" },
+  { value: "municipal", label: "Municipal / Government", rebatePerPort: 2500, chargerType: "L2" }
+];
+
 const UTILITIES = [
- { value: "dte", label: "DTE Energy (SE Michigan)" },
- { value: "consumers", label: "Consumers Energy (W. Michigan)" },
- { value: "xcel", label: "Xcel Energy (Colorado)" },
- { value: "blackhills", label: "Black Hills Energy (Colorado)" },
- { value: "other", label: "Other" },
+  { value: "dte", label: "DTE Energy (SE Michigan)" },
+  { value: "consumers", label: "Consumers Energy (W. Michigan)" },
+  { value: "xcel", label: "Xcel Energy (Colorado)" },
+  { value: "blackhills", label: "Black Hills Energy (Colorado)" },
+  { value: "other", label: "Other" }
 ];
+
 const INSTALL_COMPLEXITY = [
- { value: "simple", label: "Simple (short wire run, adequate panel)", multiplier: 1.0 },
- { value: "moderate", label: "Moderate (medium wire run or panel upgrade)", multiplier: 1.6  { value: "complex", label: "Complex (long run, major electrical work)", multiplier: 2.4 },
+  { value: "simple", label: "Simple (short wire run, adequate panel)", multiplier: 1.0 },
+  { value: "moderate", label: "Moderate (medium wire run or panel upgrade)", multiplier: 1.6 },
+  { value: "complex", label: "Complex (long run, major electrical work)", multiplier: 2.4 }
 ];
+
 function formatCurrency(num) {
  return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFraction}
 function ProgressBar({ value, max, color = "bg-emerald-500", label }) {
