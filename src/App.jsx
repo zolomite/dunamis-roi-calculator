@@ -34,18 +34,26 @@ function formatCurrency(num) {
 }
  
 function ProgressBar({ value, max, color = "bg-emerald-500", label }) {
- const pct = Math.min((value / max) * 100, 100);
- return (
- <div className="mb-3">
- <div className="flex justify-between text-sm mb-1">
- <span className="text-slate-300">{label}</span>
- <span className="font-semibold text-white">{formatCurrency(value)}</span>
- </div>
- <div className="w-full bg-slate-700 rounded-full h-3">
- <div className={`${color} h-3 rounded-full transition-all duration-500`} style={{ wid </div>
- </div>
- );
-}
+  const pct = Math.min((value / max) * 100, 100);
+
+  return (
+    <div className="mb-3">
+      <div className="flex justify-between text-sm mb-1">
+        <span className="text-slate-300">{label}</span>
+        <span className="font-semibold text-white">{formatCurrency(value)}</span>
+      </div>
+
+      <div className="w-full bg-slate-700 rounded-full h-3">
+        <div
+          className={`${color} h-3 rounded-full transition-all duration-500`}
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </div>
+  );
+} 
+
+
 export default function DunamisROICalculator() {
  const [propertyType, setPropertyType] = useState("multifamily_income");
  const [utility, setUtility] = useState("dte");
